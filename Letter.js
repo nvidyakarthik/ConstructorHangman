@@ -2,15 +2,16 @@ function Letter(letterChar){
     this.letterChar=letterChar;
     this.isLetterGuessed=false;
     this.underLyingChar=function(){
-        if(isLetterGuessed)
+        if(this.isLetterGuessed)
             return this.letterChar;
         else
-            return "_";    
+            return "-";    
 
     }
     this.letterCheck=function(guessedChar){
         if(guessedChar===this.letterChar)
             this.isLetterGuessed=true;
+            
     }
 }
 

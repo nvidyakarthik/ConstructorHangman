@@ -1,15 +1,20 @@
-/* ndex.js: The file containing the logic for the course of the game, which depends on Word.js and:
-Randomly selects a word and uses the Word constructor to store it
-Prompts the user for each guess and keeps track of the user's remaining guesses
-etter.js should not require any other files.
-Word.js should only require Letter.js */
 var word = require("./Word");
 var letter = require("./Letter");
 var inquirer = require("inquirer");
 var wordChoices = ["elephant", "lion", "tiger", "giraffe", "crocodile", "gorilla", "hippopotamus", "kangaroo"];
 var computerGuess = wordChoices[Math.floor(Math.random() * wordChoices.length)];
 console.log(computerGuess);
-var numberOfGuesses = 10;
+var computerGuessArray=computerGuess.split("");
+var letterObjectsArray=[];
+for(var i=0;i<computerGuessArray.length;i++){
+    letterObjectsArray.push(new letter(computerGuessArray[i]));
+}
+var data=new word(letterObjectsArray);
+console.log(data.getData());
+var numberOfGuesses = 3;
+var count=0;
+function getUserInput(){
+if(count<=numberOfGuesses){
 inquirer.prompt([
 
     {
@@ -18,8 +23,17 @@ inquirer.prompt([
       message: "Guess a letter!!!"
     }
 ]).then(function(response){
-    console.log(response.guessedLetter);
+    //console.log(response.guessedLetter);
+    
+    
+    data.guess(response.guessedLetter);
+    
+    console.log(data.getData());
+    count++;
+    getUserInput();  
 
 });
-
+}
+}
+getUserInput();
 
