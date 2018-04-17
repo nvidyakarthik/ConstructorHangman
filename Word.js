@@ -1,7 +1,6 @@
 var letter=require("./Letter");
 function Word(compGuessArrObject){
     this.compGuessArrObject=compGuessArrObject;
-
     this.getData=function(){
         var word="";
         this.compGuessArrObject.forEach(element => {
@@ -10,8 +9,7 @@ function Word(compGuessArrObject){
         });
         return word;
      }
-
-    this.guess=function(guessedLetter){
+    this.isLetterGuessed=function(guessedLetter){
         this.compGuessArrObject.forEach(element =>{
            
             element.letterCheck(guessedLetter);
