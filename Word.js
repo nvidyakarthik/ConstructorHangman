@@ -5,15 +5,11 @@ function Word(compGuessArrObject){
     this.getData=function(){
         var word="";
         this.compGuessArrObject.forEach(element => {
-           
             word+=element.underLyingChar()+" ";
-            
-            
+                
         });
         return word;
-        
-
-    }
+     }
 
     this.guess=function(guessedLetter){
         this.compGuessArrObject.forEach(element =>{
@@ -21,8 +17,6 @@ function Word(compGuessArrObject){
             element.letterCheck(guessedLetter);
             
         });
-       
-
     }
 }
 module.exports=Word;

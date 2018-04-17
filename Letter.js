@@ -11,7 +11,7 @@ function Letter(letterChar){
     this.letterCheck=function(guessedChar){
         if(guessedChar===this.letterChar)
             this.isLetterGuessed=true;
-            
+          
     }
 }
 
