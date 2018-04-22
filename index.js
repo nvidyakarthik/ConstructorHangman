@@ -16,12 +16,13 @@ function playGame() {
     var computerGuessArray = computerGuess.split("");
     var letterObjectsArray = [];
     numberOfGuesses = 10;
+    //Creating letter object from the computer guessed word and storing it in an array
     for (var i = 0; i < computerGuessArray.length; i++) {
         letterObjectsArray.push(new letter(computerGuessArray[i]));
     }
     data = new word(letterObjectsArray);
-    //console.log(data.getData());
     previousWord = data.getData();
+    console.log(previousWord);
     checkUserInput();
 }
 
